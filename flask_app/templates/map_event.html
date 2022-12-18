@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/map_event_style.css') }}">
+
+    <title>Map Event</title>
+
+</head>
+<body>
+    <div class="banner">
+        <div class="left">
+            
+            
+        </div>
+        <div class="right">
+            <div class="links">
+                <a href="/event/search_event" style="color: black">Search Event</a>
+                <a href="/user/account" style="color: black">Account Info</a>
+                <a href="/dashboard" style="color: black">Back to Dashboard</a>
+                <a href="/logout" style="color: black">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h1>{{event.event_type}}</h1>
+            <p>Description: {{event.location}}</p>
+            <p>Date: {{event.event_date.strftime(date)}}</p>
+            <p>Time: {{event.event_time}}</p>
+            <p>Quantity: {{event.spots_open}}</p>
+            <p>Posted By: {{event.user.first_name}} {{event.user.last_name}}</p>
+        </div>
+    </div>
+</body>
+</html>

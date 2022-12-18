@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-size: cover;
+    
+}
+
+#left-content {
+    margin-top: 50px;
+    padding: 10px;
+    width: 33%;
+    height: 500px;
+    border-radius: 5px;
+    background-color: light;
+}
+
+#right-content{
+    margin-top: 50px;
+    padding: 10px;
+    width: 33%;
+    height: 500px;
+    border-radius: 5px;
+    background-color: light;
+}
+
+
+
+h1 {
+    text-indent: 100px;
+    margin-top: 50px;
+    color: black;
+    
+}
+
