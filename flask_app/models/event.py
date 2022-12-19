@@ -54,6 +54,68 @@ class Event:
         return events
     
     @classmethod
+    def get_all_events_with_user_by_event_type(cls, form_data):
+        query = "SELECT * FROM events LEFT JOIN users on events.user_id = users.id WHERE event_type = %(event_type)s;"
+        events = connectToMySQL('group_project_schema').query_db(query, form_data)
+        results = []
+        for event in events:
+            data = {
+                'id' : event['users.id'],
+                'first_name' : event['first_name'],
+                'last_name' : event['last_name'],
+                'email' : event['email'],
+                'pwd' : event['pwd'],
+                'created_at' : event['users.created_at'],
+                'updated_at' : event['users.updated_at']
+            }
+            one_event = cls(event)
+            one_event.creator = user.User(data)
+            results.append(one_event) 
+        return events
+    
+    @classmethod
+    def get_all_events_with_user_by_event_location(cls, form_data):
+        query = "SELECT * FROM events LEFT JOIN users on events.user_id = users.id WHERE location = %(location)s;"
+        events = connectToMySQL('group_project_schema').query_db(query, form_data)
+        results = []
+        for event in events:
+            data = {
+                'id' : event['users.id'],
+                'first_name' : event['first_name'],
+                'last_name' : event['last_name'],
+                'email' : event['email'],
+                'pwd' : event['pwd'],
+                'created_at' : event['users.created_at'],
+                'updated_at' : event['users.updated_at']
+            }
+            one_event = cls(event)
+            one_event.creator = user.User(data)
+            results.append(one_event) 
+        return events
+    
+    @classmethod
+    def get_all_events_with_user_by_event_date(cls, form_data):
+        query = "SELECT * FROM events LEFT JOIN users on events.user_id = users.id WHERE event_date = %(event_date)s;"
+        events = connectToMySQL('group_project_schema').query_db(query, form_data)
+        results = []
+        for event in events:
+            data = {
+                'id' : event['users.id'],
+                'first_name' : event['first_name'],
+                'last_name' : event['last_name'],
+                'email' : event['email'],
+                'pwd' : event['pwd'],
+                'created_at' : event['users.created_at'],
+                'updated_at' : event['users.updated_at']
+            }
+            one_event = cls(event)
+            one_event.creator = user.User(data)
+            results.append(one_event) 
+        return events
+    
+    
+    
+    @classmethod
     def get_by_id(cls, data):
         query = "SELECT * FROM events LEFT JOIN users on events.user_id = users.id WHERE events.id = %(id)s;"
         result = connectToMySQL("group_project_schema").query_db(query,data)

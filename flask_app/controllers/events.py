@@ -14,6 +14,12 @@ def map_form(event_id):
         'id' : event_id
     }    
     return render_template("map_event.html", event = Event.get_by_id(data), date = dateFormat )
+
+
+
+
+
+
     
 
 @app.route('/event/search_event')
@@ -25,15 +31,42 @@ def search_event_form():
     }
     return render_template('search_event.html', events = Event.get_all_events_with_user())
 
-@app.route('/event/search/', methods=['POST'])
-def search_event():
+@app.route('/event/search_by_type/', methods=['POST'])
+def search_event_type():
     if 'user_id' not in session:
         return redirect('/logout')
     data = {
         'event_type' : request.form['event_type']
     }
     
-    return render_template('search_list.html', event = Event.get_by_event_type(data))
+    return render_template('search_list.html', events = Event.get_all_events_with_user_by_event_type(data))
+
+@app.route('/event/search_by_location/', methods=['POST'])
+def search_event_location():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        'location' : request.form['location']
+    }
+    
+    return render_template('search_list.html', events = Event.get_all_events_with_user_by_event_location(data))
+
+@app.route('/event/search_by_date/', methods=['POST'])
+def search_event_date():
+    if 'user_id' not in session:
+        return redirect('/logout')
+    data = {
+        'event_date' : request.form['event_date']
+    }
+    
+    return render_template('search_list.html', events = Event.get_all_events_with_user_by_event_date(data))
+
+
+
+
+
+
+
 
 @app.route('/event/add_event')
 def add_event_form():

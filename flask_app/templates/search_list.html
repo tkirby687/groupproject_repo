@@ -9,7 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search_list_style.css') }}">
 
-    <title>Dashboard</title>
+    <title>Search List</title>
 </head>
 <body>
     
@@ -40,28 +40,28 @@
             </thead>
             <tbody>
                 
-                    
-                <tr>
-                    <td class="center">
-                        <a href="/event/map_event/{{event.id}}" style="color: black">{{event.event_type}}</a>
-                    </td>
-                    <td class="center">{{event.location}}</td>
-                    <td class="center">{{event.spots_open}}</td>
-                    <td class="center">{{event.event_time}}</td>
-                    {% if event.user_id == session.user_id %}
-                    <td class="center">
-                        <a href="/event/{{event.id}}" style="color: black">Join</a>
-                        
-                    </td>
-                    {% endif %}
-                    {% if event.user_id != session.user_id %}
-                    <td class="center">
-                        <a href="/event/{{event.id}}" style="color: black" >Join</a>
-                    </td>
-                    {% endif %}
-                </tr>
+                {% for event in events %}    
+                    <tr>
+                        <td class="center">
+                            <a href="/event/map_event/{{event.id}}" style="color: black">{{event.event_type}}</a>
+                        </td>
+                        <td class="center">{{event.location}}</td>
+                        <td class="center">{{event.spots_open}}</td>
+                        <td class="center">{{event.event_date}}</td>
+                        {% if event.user_id == session.user_id %}
+                        <td class="center">
+                            <a href="/event/{{event.id}}" style="color: black">Join</a>
+                            
+                        </td>
+                        {% endif %}
+                        {% if event.user_id != session.user_id %}
+                        <td class="center">
+                            <a href="/event/{{event.id}}" style="color: black" >Join</a>
+                        </td>
+                        {% endif %}
+                    </tr>
                 
-                
+                {% endfor %}
             </tbody>
         </table>
         <a href="/event/search_event" class="btn btn-dark">Search Again</a>
