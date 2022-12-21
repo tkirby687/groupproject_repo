@@ -1,5 +1,6 @@
 from flask_app.models.user import User
 from flask_app.models.event import Event
+from flask_app.models.message import Message
 from flask import flash
 from flask_app import app
 from flask import Flask, redirect, render_template, request, session
@@ -13,13 +14,7 @@ def map_form(event_id):
     data = {
         'id' : event_id
     }    
-    return render_template("map_event.html", event = Event.get_by_id(data), date = dateFormat )
-
-
-
-
-
-
+    return render_template("map_event.html", event = Event.get_by_id(data), messages = Message.get_by_id(data), date = dateFormat )
     
 
 @app.route('/event/search_event')
@@ -60,12 +55,6 @@ def search_event_date():
     }
     
     return render_template('search_list.html', events = Event.get_all_events_with_user_by_event_date(data))
-
-
-
-
-
-
 
 
 @app.route('/event/add_event')

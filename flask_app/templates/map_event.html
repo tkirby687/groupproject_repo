@@ -35,6 +35,19 @@
             <p>Time: {{event.event_time}}</p>
             <p>Quantity: {{event.spots_open}}</p>
             <p>Posted By: {{event.user.first_name}} {{event.user.last_name}}</p>
+            <p>user ID: {{event.user_id}}</p>
+            <p>event ID: {{event.id}}</p>
+
+        </div>
+        <div>
+            <h2>Event Messages:</h2>
+            {% for event in messages.user_messages %}
+                
+                <h2>{{ event.first_name }}</h2>
+                <h2>{{ event.event_message }}</h2>
+                
+                
+            {% endfor %}
         </div>
     </div>
 </body>

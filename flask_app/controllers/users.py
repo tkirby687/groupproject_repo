@@ -8,12 +8,12 @@ from datetime import datetime
 from datetime import date
 dateFormat = "%m/%d/%Y"
 
-@app.route('/user/account/')
-def account_info():
+@app.route('/user/account/<int:event_id>')
+def account_info(event_id):
     data = {
-        'id' : session['user_id']
+        'id' : event_id
     }
-    return render_template('user_account.html', user = User.get_by_id(data))
+    return render_template('user_account.html', event = Event.get_by_id(data))
 
            
 

@@ -15,25 +15,29 @@
     
     <div class="banner">
         <div class="left">
-            <h1>Welcome, {{user.first_name}}</h1>
-            <h2>Account Info:</h2>
+            
+            <h2>Creator Info:</h2>
         </div>
         <div class="right">
             <div class="links" >
                 <a href="/event/add_event" style="color: black">+ Add Event</a>
                 <a href="/event/search_event" style="color: black">Search Event</a>
-                <a href="/user/account" style="color: black">Account Info</a>
+                <a href="/dashboard" style="color: black">Back to Dashboard</a>
                 <a href="/logout" style="color: black">Logout</a>
             </div>
         </div>
     </div>
     <div class=" container">
+
+       
+
         <table>
             <thead class="header">
                 <tr>
                     <th class="center">First Name</th>
                     <th class="center">Last Name</th>
                     <th class="center">Email</th>
+                    <th class="center">Event Name</th>
                     
                     
                 </tr>
@@ -41,14 +45,24 @@
             <tbody>
                     
                 <tr>
-                    <td class="center">{{user.first_name}}</td>
-                    <td class="center">{{user.last_name}}</td>
-                    <td class="center">{{user.email}}</td>
+                    <td class="center">{{event.user.first_name}}</td>
+                    <td class="center">{{event.user.last_name}}</td>
+                    <td class="center">{{event.user.email}}</td>
+                    <td class="center">{{event.event_type}}</td>
                     
                 </tr>
             </tbody>
         </table>
-        
+        <form action="/message/create/{{event.id}}" method="post"> 
+            
+            <div>
+                <label for="event_message" >Post Event Message</label>
+                <input name="event_message" type="text" class="form-control" id="event_message">
+              </div>
+            <div>
+                <button type="submit" class="btn btn-dark">Post Message</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
