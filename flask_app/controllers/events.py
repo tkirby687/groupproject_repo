@@ -13,8 +13,11 @@ def map_form(event_id):
         return redirect('/logout')
     data = {
         'id' : event_id
+    }
+    message_data = {
+        'event_id' : event_id
     }    
-    return render_template("map_event.html", event = Event.get_by_id(data), messages = Message.get_by_id(data), date = dateFormat )
+    return render_template("map_event.html", event = Event.get_by_id(data), messages = Message.get_by_id(data), event_messages = Message.get_all(message_data), date = dateFormat )
     
 
 @app.route('/event/search_event')

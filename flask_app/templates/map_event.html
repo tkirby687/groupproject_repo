@@ -29,26 +29,56 @@
     </div>
     <div class="container">
         <div class="content">
-            <h1>{{event.event_type}}</h1>
-            <p>Description: {{event.location}}</p>
+            <h1>Event Name: {{event.event_type}}</h1>
+            <p>Location: {{event.location}}</p>
             <p>Date: {{event.event_date.strftime(date)}}</p>
             <p>Time: {{event.event_time}}</p>
-            <p>Quantity: {{event.spots_open}}</p>
-            <p>Posted By: {{event.user.first_name}} {{event.user.last_name}}</p>
-            <p>user ID: {{event.user_id}}</p>
-            <p>event ID: {{event.id}}</p>
-
+            <p>Spots Needed: {{event.spots_open}}</p>
+            <p>Created By: {{event.user.first_name}} {{event.user.last_name}}</p>
         </div>
-        <div>
+        <div class="messages">
             <h2>Event Messages:</h2>
-            {% for event in messages.user_messages %}
-                
-                <h2>{{ event.first_name }}</h2>
-                <h2>{{ event.event_message }}</h2>
-                
-                
-            {% endfor %}
+            <table>
+                <thead class="header">
+                    <tr>
+                        <th class="center">Posted By</th>
+                        <th class="center">Message</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="center">
+                            {% for event in messages.user_messages %}
+                                <p>{{ event.first_name }}</p>
+                                <p>{{ event.event_message }}</p>
+                            {% endfor %}
+                        </td>
+
+                        
+                        
+                        <td class="center">
+                            {% for event in event_messages %}
+                                <p>{{ event.event_message }}</p>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
         </div>
     </div>
 </body>
 </html>
+
+
+
+
+            {% for event in event_messages %}
+                <h2>{{ event.event_message }}</h2>
+            {% endfor %}
+            {% for event in messages.user_messages %}
+                <p>{{ event.first_name }}</p>
+                <p>{{ event.event_message }}</p>
+            {% endfor %}
+

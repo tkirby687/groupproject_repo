@@ -15,51 +15,8 @@
 <body>
     <div class="banner">
         <div class="left">
-            
-            <form action="/event/search_by_type" method="post" class="col-6">
-                <h2>Search By Event Name:</h2>
-                
-                <div class="form-group">
-                    <label for="event_type">Event Name:</label>
-                    <select name="event_type" id = "event_type" >
-                        {% for event in  events %}
-                            <option value="{{event.event_type}}">{{event.event_type}}</option>
-                            
-                        {% endfor %}
-                    </select>
-                </div>
-                <input type="submit" value="Search" class="btn btn-dark">
-            </form>
 
-            <form action="/event/search_by_location" method="post" class="col-6">
-                <h2>Search By Event Location:</h2>
-                
-                <div class="form-group">
-                    <label for="location">Location:</label>
-                    <select name="location" id = "location" >
-                        {% for event in  events %}
-                            <option value="{{event.location}}">{{event.location}}</option>
-                            
-                        {% endfor %}
-                    </select>
-                </div>
-                <input type="submit" value="Search" class="btn btn-dark">
-            </form>
-
-            <form action="/event/search_by_date" method="post" class="col-6">
-                <h2>Search By Event Date:</h2>
-                
-                <div class="form-group">
-                    <label for="event_date">Event Date:</label>
-                    <select name="event_date" id = "event_date" >
-                        {% for event in  events %}
-                            <option value="{{event.event_date}}">{{event.event_date}}</option>
-                            
-                        {% endfor %}
-                    </select>
-                </div>
-                <input type="submit" value="Search" class="btn btn-dark">
-            </form>
+            <h2>Search For an Event:</h2>
             
         </div>
         <div class="right">
@@ -68,6 +25,50 @@
                 <a href="/user/account" style="color: black">Account Info</a>
                 <a href="/logout" style="color: black">Logout</a>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <form action="/event/search_by_type" method="post" class="col-6">
+                <h4>Search By Event Name:</h4>
+                <div class="form-group">
+                    <label for="event_type">Event Name:</label>
+                    <select name="event_type" id = "event_type" >
+                        {% for event in  events %}
+                            <option value="{{event.event_type}}">{{event.event_type}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" value="Search" class="btn btn-dark">
+            </form>
+        </div>
+        <div class="content">
+            <form action="/event/search_by_location" method="post" class="col-6">
+                <h4>Search By Event Location:</h4>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <select name="location" id = "location" >
+                        {% for event in  events %}
+                            <option value="{{event.location}}">{{event.location}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" value="Search" class="btn btn-dark">
+            </form>
+        </div>
+        <div class="content">
+            <form action="/event/search_by_date" method="post" class="col-6">
+                <h4>Search By Event Date:</h4>
+                <div class="form-group">
+                    <label for="event_date">Event Date:</label>
+                    <select name="event_date" id = "event_date" >
+                        {% for event in  events %}
+                            <option value="{{event.event_date}}">{{event.event_date}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" value="Search" class="btn btn-dark">
+            </form>
         </div>
     </div>
 </body>

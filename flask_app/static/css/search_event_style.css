@@ -7,26 +7,16 @@
     height: 95vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;    
-    margin-bottom: 50px;    
-    margin: 0 auto;
-    
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: lightgreen;
 }
 
-h1 {
-  margin-bottom: 30px;
+.content {  
+  width: 30%;
+  height: 500px;  
 }
-
-.content {
-  margin: 0 auto;
-  width: 60%;
-  height: 50vh;
-  padding: 20px;
-  margin: 30px;
-  
-}
-
 
 p {
   font-size: 18pt;
@@ -37,7 +27,7 @@ p {
   justify-content: space-around;
   padding: 30px;  
   height: 100px;
-  
+  background-color: skyblue;
 }
 
 .left {
@@ -48,9 +38,9 @@ p {
 
   .links {
     display: flex;
-    
     align-items: flex-end;
     gap: 20px;
+    font-weight: bold;
   }
 
   .center {

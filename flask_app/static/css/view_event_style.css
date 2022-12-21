@@ -11,6 +11,7 @@
     justify-content: flex-start;    
     margin-bottom: 50px;    
     margin: 0 auto;
+    background-color: lightgreen;
     
 }
 
@@ -37,6 +38,7 @@ p {
   justify-content: space-around;
   padding: 30px;  
   height: 100px;
+  background-color: skyblue;
   
 }
 
@@ -48,7 +50,7 @@ p {
 
   .links {
     display: flex;
-    
+    font-weight: bold;
     align-items: flex-end;
     gap: 20px;
   }

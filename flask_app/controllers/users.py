@@ -2,20 +2,15 @@ from flask import  render_template, request, redirect, session, flash
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.event import Event
+from flask_app.models.message import Message
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 from datetime import datetime
 from datetime import date
 dateFormat = "%m/%d/%Y"
+from datetime import time
+timeFormat = "%I:%M:%S"
 
-@app.route('/user/account/<int:event_id>')
-def account_info(event_id):
-    data = {
-        'id' : event_id
-    }
-    return render_template('user_account.html', event = Event.get_by_id(data))
-
-           
 
 @app.route('/')
 def index():
@@ -73,3 +68,11 @@ def logout():
     
     session.clear()
     return redirect('/')
+
+@app.route('/user/account/')
+def account_info():
+    data = {
+        'id' : session['user_id']
+    }
+    
+    return render_template('user_account.html', user = User.get_by_id(data), date = dateFormat)

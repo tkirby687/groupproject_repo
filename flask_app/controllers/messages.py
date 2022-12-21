@@ -11,7 +11,7 @@ dateFormat = "%m/%d/%Y"
 def create_message(event_id):
     
     if 'user_id' not in session:
-        return redirect('/logout')    
+        return redirect('/logout')
             
     data = {
         'event_message' : request.form['event_message'],

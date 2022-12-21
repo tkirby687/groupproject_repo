@@ -16,7 +16,7 @@
     <div class="banner">
         <div class="left">
             
-            <h2>Creator Info:</h2>
+            <h2>User Info:</h2>
         </div>
         <div class="right">
             <div class="links" >
@@ -28,41 +28,22 @@
         </div>
     </div>
     <div class=" container">
-
-       
-
         <table>
             <thead class="header">
                 <tr>
                     <th class="center">First Name</th>
                     <th class="center">Last Name</th>
                     <th class="center">Email</th>
-                    <th class="center">Event Name</th>
-                    
-                    
                 </tr>
             </thead>
             <tbody>
-                    
                 <tr>
-                    <td class="center">{{event.user.first_name}}</td>
-                    <td class="center">{{event.user.last_name}}</td>
-                    <td class="center">{{event.user.email}}</td>
-                    <td class="center">{{event.event_type}}</td>
-                    
+                    <td class="center">{{user.first_name}}</td>
+                    <td class="center">{{user.last_name}}</td>
+                    <td class="center">{{user.email}}</td>
                 </tr>
             </tbody>
         </table>
-        <form action="/message/create/{{event.id}}" method="post"> 
-            
-            <div>
-                <label for="event_message" >Post Event Message</label>
-                <input name="event_message" type="text" class="form-control" id="event_message">
-              </div>
-            <div>
-                <button type="submit" class="btn btn-dark">Post Message</button>
-            </div>
-        </form>
     </div>
 </body>
 </html>

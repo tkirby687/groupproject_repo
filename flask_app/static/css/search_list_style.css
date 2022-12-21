@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: lightgreen;
   
 }
 
@@ -41,7 +42,8 @@ tr:nth-child(even) {
 .banner {
   display: flex;
   justify-content: space-around;
-  padding: 30px;    
+  padding: 30px;
+  background-color: skyblue;
 }
 
   .left {

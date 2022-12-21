@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;  
     align-items: center;
+    background-color: lightgreen;
     
 }
 
@@ -26,6 +27,7 @@
   display: flex;
   justify-content: space-around;
   padding: 30px;
+  background-color: skyblue;
   
   
 }
@@ -38,7 +40,7 @@
 
   .links {
     display: flex;
-    
+    font-weight: bold;
     align-items: flex-end;
     gap: 20px;
    
