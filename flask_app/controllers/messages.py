@@ -14,8 +14,9 @@ def create_message(event_id):
         return redirect('/logout')    
             
     data = {
-        
-        'event_id' : event_id
+        'event_message' : request.form['event_message'],
+        'event_id' : event_id,
+        'user_id' : session['user_id']
         
     }
     
