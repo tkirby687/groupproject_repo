@@ -20,7 +20,7 @@ def map_form(event_id):
     return render_template("map_event.html", event = Event.get_by_id(data), messages = Message.get_by_id(data), event_messages = Message.get_all(message_data), date = dateFormat )
     
 
-@app.route('/event/search_event')
+@app.route('/event/search_event/')
 def search_event_form():
     if 'user_id' not in session:
         return redirect('/logout')

@@ -21,7 +21,7 @@
         <div class="right">
             <div class="links">
                 <a href="/event/search_event" style="color: black">Search Event</a>
-                <a href="/user/account" style="color: black">Account Info</a>
+                <a href="#" style="color: black">Account Info</a>
                 <a href="/dashboard" style="color: black">Back to Dashboard</a>
                 <a href="/logout" style="color: black">Logout</a>
             </div>
@@ -74,11 +74,4 @@
 
 
 
-            {% for event in event_messages %}
-                <h2>{{ event.event_message }}</h2>
-            {% endfor %}
-            {% for event in messages.user_messages %}
-                <p>{{ event.first_name }}</p>
-                <p>{{ event.event_message }}</p>
-            {% endfor %}
 
